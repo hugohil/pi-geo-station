@@ -6,7 +6,13 @@ const fs = require('fs')
 const port = '/dev/ttyAMA0'
 const baudRate = 9600
 
-const date = new Date().toLocaleString('fr-FR', {day: '2-digit', month: '2-digit', year: 'numeric'}).replace(/\//gi, '-')
+//const date = new Date().toLocaleString('fr-FR', {day: '2-digit', month: '2-digit', year: 'numeric'}).replace(/\//gi, '-')
+const today = new Date()
+const day = (today.getDate() < 10) ? '0' + today.getDate() : today.getDate()
+const month = ((today.getMonth() + 1) < 10) ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1)
+const year = today.getFullYear()
+const date = `${day}-${month}-${year}`
+
 const filename = `/data/GPS-${date}.txt`
 const filestream = fs.createWriteStream(filename, {flags:'a'})
 filestream.write(`---\n${new Date().toLocaleString('fr-FR', {minute: '2-digit', hour: '2-digit', hour12: false})}\n`)
