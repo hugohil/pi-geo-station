@@ -27,7 +27,11 @@ parser.on('data', (raw) => {
 	const data = nmea.parse(raw)
 	console.log(data)
 	if (data.valid) {
-		filestream(JSON.stringify(data) + '\n')
+		try {
+			filestream.write(JSON.stringify(data) + '\n')
+		} catch (e) {
+			console.error(e)
+		}
 	}
 })
 
