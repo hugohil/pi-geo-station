@@ -9,7 +9,7 @@ date = now.strftime("%d-%m-%Y")
 timelog = now.strftime("%H:%M")
 
 filename = "/data/uv-" + date + ".txt"
-filestream = open(filename, 'a')
+filestream = open(filename, 'a', 0)
 filestream.write("---\n" + timelog + "\n")
 
 sensor = SI1145.SI1145()

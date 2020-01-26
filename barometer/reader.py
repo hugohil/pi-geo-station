@@ -9,7 +9,7 @@ date = now.strftime("%d-%m-%Y")
 timelog = now.strftime("%H:%M")
 
 filename = "/data/barometer-" + date + ".txt"
-filestream = open(filename, 'a')
+filestream = open(filename, 'a', 0)
 filestream.write("---\n" + timelog + "\n")
 
 h= hp206c.hp206c()
