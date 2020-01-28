@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@drivetech/node-nmea": "^2.0.1",
+    "node-gpsd": "^0.3.1",
     "serialport": "^8.0.6"
   },
   "devDependencies": {},
